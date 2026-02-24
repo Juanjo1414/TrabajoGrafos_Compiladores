@@ -6,49 +6,49 @@ import java.awt.geom.*;
 import java.util.*;
 import java.util.List;
 
-/**
- * Panel Swing que visualiza el grafo de aldeas.
- * Dibuja nodos, aristas con pesos, y resalta los caminos calculados.
+/*
+  Panel Swing que visualiza el grafo de aldeas.
+   Dibuja nodos, aristas con pesos, y resalta los caminos calculados.
  */
 public class GraphPanel extends JPanel {
 
-    /**
-     * Radio de cada nodo dibujado
+    /*
+      Radio de cada nodo dibujado
      */
     private static final int NODE_RADIUS = 28;
 
-    /**
-     * Margen del panel
+    /*
+      Margen del panel
      */
     private static final int MARGIN = 60;
 
-    /**
-     * Grafo a visualizar
+    /*
+      Grafo a visualizar
      */
     private Graph graph;
 
-    /**
-     * Posiciones (x, y) de cada nodo en el panel
+    /*
+      Posiciones (x, y) de cada nodo en el panel
      */
     private int[][] positions;
 
-    /**
-     * Camino más corto (Dijkstra) a resaltar
+    /*
+      Camino más corto (Dijkstra) a resaltar
      */
     private List<Integer> shortestPath;
 
-    /**
-     * Camino de más víctimas (Bellman-Ford) a resaltar
+    /*
+      Camino de más víctimas (Bellman-Ford) a resaltar
      */
     private List<Integer> maxVictimsPath;
 
-    /**
-     * Nodo origen seleccionado
+    /*
+      Nodo origen seleccionado
      */
     private int start;
 
-    /**
-     * Nodo destino seleccionado
+    /*
+      Nodo destino seleccionado
      */
     private int end;
 
@@ -65,8 +65,8 @@ public class GraphPanel extends JPanel {
     private static final Color END_COLOR = new Color(255, 50, 50);
     private static final Color VICTIM_COLOR = new Color(255, 150, 50);
 
-    /**
-     * Inicializa el panel con fondo oscuro.
+    /*
+      Inicializa el panel con fondo oscuro.
      */
     public GraphPanel() {
         setBackground(BG_COLOR);
@@ -75,12 +75,8 @@ public class GraphPanel extends JPanel {
         maxVictimsPath = new ArrayList<>();
     }
 
-    /**
-     * Establece el grafo y calcula las posiciones de los nodos en círculo.
-     *
-     * @param graph grafo a mostrar
-     * @param start nodo de inicio
-     * @param end   nodo destino
+    /*
+      Establece el grafo y calcula las posiciones de los nodos en círculo.
      */
     public void setGraph(Graph graph, int start, int end) {
         this.graph = graph;
@@ -92,11 +88,8 @@ public class GraphPanel extends JPanel {
         repaint();
     }
 
-    /**
-     * Establece los caminos a resaltar y repinta.
-     *
-     * @param shortest   camino más corto
-     * @param maxVictims camino de más víctimas
+    /*
+      Establece los caminos a resaltar y repinta.
      */
     public void setPaths(List<Integer> shortest, List<Integer> maxVictims) {
         this.shortestPath = shortest != null ? shortest : new ArrayList<>();
@@ -104,8 +97,8 @@ public class GraphPanel extends JPanel {
         repaint();
     }
 
-    /**
-     * Calcula las posiciones de los nodos distribuidos en un círculo.
+    /*
+      Calcula las posiciones de los nodos distribuidos en un círculo.
      */
     private void calculatePositions() {
         int n = graph.getN();
@@ -150,8 +143,8 @@ public class GraphPanel extends JPanel {
         drawNodes(g2);
     }
 
-    /**
-     * Dibuja todas las aristas del grafo, resaltando los caminos.
+    /*
+      Dibuja todas las aristas del grafo, resaltando los caminos.
      */
     private void drawEdges(Graphics2D g2) {
         List<List<int[]>> adj = graph.getAdj();
@@ -194,8 +187,8 @@ public class GraphPanel extends JPanel {
         }
     }
 
-    /**
-     * Dibuja una flecha dirigida entre dos puntos.
+    /*
+      Dibuja una flecha dirigida entre dos puntos.
      */
     private void drawArrow(Graphics2D g2, int x1, int y1, int x2, int y2) {
         double dx = x2 - x1;
@@ -226,8 +219,8 @@ public class GraphPanel extends JPanel {
         g2.fillPolygon(new int[]{ex, ax1, ax2}, new int[]{ey, ay1, ay2}, 3);
     }
 
-    /**
-     * Dibuja todos los nodos del grafo.
+    /*
+      Dibuja todos los nodos del grafo.
      */
     private void drawNodes(Graphics2D g2) {
         int[] victims = graph.getVictimas();
@@ -281,8 +274,8 @@ public class GraphPanel extends JPanel {
         }
     }
 
-    /**
-     * Dibuja la leyenda en la esquina inferior izquierda.
+    /*
+      Dibuja la leyenda en la esquina inferior izquierda.
      */
     private void drawLegend(Graphics2D g2) {
         int lx = 15, ly = getHeight() - 80;
@@ -312,8 +305,8 @@ public class GraphPanel extends JPanel {
         g2.drawString("Destino (guarida)", lx + 83, ly + 4);
     }
 
-    /**
-     * Verifica si la arista (u→v) está en el camino dado.
+    /*
+      Verifica si la arista (u→v) está en el camino dado.
      */
     private boolean isEdgeInPath(int u, int v, List<Integer> path) {
         for (int i = 0; i < path.size() - 1; i++) {

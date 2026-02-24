@@ -6,7 +6,7 @@ import java.util.*;
  Implementación de Dijkstra para encontrar el camino más corto
  (menor distancia total) desde un nodo origen hasta un destino.
  */
-public class DijkstraAlgorithm {
+public class DijkstraAlgoritmo {
 
     private final Graph graph;
 
@@ -19,7 +19,7 @@ public class DijkstraAlgorithm {
 
     private int[] parent;
 
-    public DijkstraAlgorithm(Graph graph) {
+    public DijkstraAlgoritmo(Graph graph) {
         this.graph = graph;
     }
 

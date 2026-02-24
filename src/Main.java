@@ -1,13 +1,12 @@
 
 import TrabajoGrafosCompi.BellmanFordMax;
-import TrabajoGrafosCompi.DijkstraAlgorithm;
+import TrabajoGrafosCompi.DijkstraAlgoritmo;
 import TrabajoGrafosCompi.Graph;
 import TrabajoGrafosCompi.GraphPanel;
 
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
 
@@ -37,8 +36,8 @@ public class Main extends JFrame {
     private static final Color BTN_FG = new Color(220, 200, 255);
     private static final Color INPUT_BG = new Color(30, 22, 55);
 
-    /**
-     * Constructor: construye y muestra la ventana principal.
+    /*
+      Constructor: construye y muestra la ventana principal.
      */
     public Main() {
         super("🧙 El Ritual de JohlodejVe - Grafos");
@@ -54,8 +53,8 @@ public class Main extends JFrame {
         setVisible(true);
     }
 
-    /**
-     * Construye todos los componentes de la interfaz.
+    /*
+      Construye todos los componentes de la interfaz.
      */
     private void buildUI() {
         // ── Panel izquierdo: entrada + resultados ─────────────────────────
@@ -149,8 +148,8 @@ public class Main extends JFrame {
         add(rightWrapper, BorderLayout.CENTER);
     }
 
-    /**
-     * Crea una etiqueta con el estilo del tema.
+    /*
+      Crea una etiqueta con el estilo del tema.
      */
     private JLabel styledLabel(String text) {
         JLabel l = new JLabel(text);
@@ -159,8 +158,8 @@ public class Main extends JFrame {
         return l;
     }
 
-    /**
-     * Crea un campo de texto estilizado.
+    /*
+      Crea un campo de texto estilizado.
      */
     private JTextField styledTextField(String def, int cols) {
         JTextField tf = new JTextField(def, cols);
@@ -174,8 +173,8 @@ public class Main extends JFrame {
         return tf;
     }
 
-    /**
-     * Carga el ejemplo del PDF en el área de entrada.
+    /*
+      Carga el ejemplo del PDF en el área de entrada.
      */
     private void loadExample() {
         inputArea.setText(
@@ -193,8 +192,8 @@ public class Main extends JFrame {
         endField.setText("6");
     }
 
-    /**
-     * Lee los datos, construye el grafo, ejecuta los algoritmos y muestra resultados.
+    /*
+      Lee los datos, construye el grafo, ejecuta los algoritmos y muestra resultados.
      */
     private void runAlgorithms() {
         try {
@@ -226,7 +225,7 @@ public class Main extends JFrame {
             currentGraph = graph;
 
             // 2. Dijkstra
-            DijkstraAlgorithm dij = new DijkstraAlgorithm(graph);
+            DijkstraAlgoritmo dij = new DijkstraAlgoritmo(graph);
             dij.run(start);
             List<Integer> dijPath = dij.getPath(end);
             int dijDist = dij.getDistance(end);
@@ -287,16 +286,16 @@ public class Main extends JFrame {
         }
     }
 
-    /**
-     * Muestra un diálogo de error.
+    /*
+      Muestra un diálogo de error.
      */
     private void showError(String msg) {
         JOptionPane.showMessageDialog(this, msg, "Error de entrada",
                 JOptionPane.ERROR_MESSAGE);
     }
 
-    /**
-     * Punto de entrada del programa.
+    /*
+      Punto de entrada del programa.
      */
     public static void main(String[] args) {
         // Usar el look and feel del sistema si está disponible
