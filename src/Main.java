@@ -17,7 +17,7 @@ import java.util.List;
 public class Main extends JFrame {
 
     // Componentes de la GUI
-    private JTextArea inputArea;      // Área para ingresar los datos del grafo
+    private JTextArea inputArea;      // Area para ingresar los datos del grafo
     private JTextField startField;    // Nodo de inicio
     private JTextField endField;      // Nodo destino (guarida)
     private JTextArea resultArea;     // Muestra los resultados
