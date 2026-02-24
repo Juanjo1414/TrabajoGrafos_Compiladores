@@ -206,7 +206,7 @@ En un grafo de `n` nodos, el camino simple más largo posible tiene `n-1` arista
 
 En grafos de redes de caminos (como aldeas), el número de aristas `E` suele ser mucho menor que `V²`, por lo que la lista de adyacencia es más eficiente.
 
-### ¿Por qué arreglo `parent[]` para reconstruir el camino?
+### ¿Por qué arreglo `padre[]` para reconstruir el camino?
 
 Durante la ejecución de cada algoritmo, cada vez que encontramos un camino mejor hacia un nodo `v` llegando desde `u`, guardamos `parent[v] = u`. Al finalizar, solo hay que seguir el rastro desde el destino hasta el origen y luego invertirlo.
 
