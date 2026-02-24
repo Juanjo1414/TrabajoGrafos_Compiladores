@@ -167,7 +167,7 @@ La ventana se divide en dos paneles:
 3. Mientras la cola no esté vacía:
    - Extraer el nodo `u` con menor distancia
    - Para cada vecino `v` de `u`: si `dist[u] + peso(u,v) < dist[v]`, actualizar
-4. Reconstruir el camino siguiendo el arreglo `parent[]` desde el destino
+4. Reconstruir el camino siguiendo el arreglo `padre[]` desde el destino
 
 **Complejidad:** `O((V + E) log V)`
 
@@ -184,8 +184,8 @@ Dijkstra garantiza el óptimo solo cuando se **minimiza** una función monótona
 
 | Bellman-Ford clásico | Versión adaptada |
 |----------------------|-----------------|
-| `dist[v] = ∞` inicial | `maxVict[v] = -1` inicial |
-| Condición: `dist[u] + w < dist[v]` | Condición: `maxVict[u] + c > maxVict[v]` |
+| `dist[v] = ∞` inicial | `maxVictimas[v] = -1` inicial |
+| Condición: `dist[u] + w < dist[v]` | Condición: `maxVictimas[u] + c > maxVictimas[v]` |
 | Objetivo: minimizar distancia | Objetivo: maximizar víctimas |
 
 **¿Por qué n-1 iteraciones?**
@@ -208,7 +208,7 @@ En grafos de redes de caminos (como aldeas), el número de aristas `E` suele ser
 
 ### ¿Por qué arreglo `padre[]` para reconstruir el camino?
 
-Durante la ejecución de cada algoritmo, cada vez que encontramos un camino mejor hacia un nodo `v` llegando desde `u`, guardamos `parent[v] = u`. Al finalizar, solo hay que seguir el rastro desde el destino hasta el origen y luego invertirlo.
+Durante la ejecución de cada algoritmo, cada vez que encontramos un camino mejor hacia un nodo `v` llegando desde `u`, guardamos `padre[v] = u`. Al finalizar, solo hay que seguir el rastro desde el destino hasta el origen y luego invertirlo.
 
 ---
 
